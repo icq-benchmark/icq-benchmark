@@ -1,0 +1,9 @@
+ftfy==6.2.0
+numpy==1.26.4
+openai==1.33.0
+Pillow==10.3.0
+regex==2024.5.15
+torch==2.3.1
+torchvision==0.18.1
+tqdm==4.66.4
+transformers==4.41.2
