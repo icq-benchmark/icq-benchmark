@@ -2,7 +2,7 @@ from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
 import torch
 import os
 from PIL import Image
-from utils import load_jsonl, save_file, remove_extra_spaces, remove_prompt, get_style_number
+from utils import load_jsonl, save_file, remove_extra_spaces, remove_prompt
 import argparse
 
 processor = LlavaNextProcessor.from_pretrained(
@@ -15,12 +15,11 @@ model.to("cuda:0")
 
 def summarize_caption(raw_data, source_dir, style):
     adjusted_caps = []
-    style_number = get_style_number(style)
     for idx, data in enumerate(raw_data):
         if style == "scribble":
             if data['has_new_detail']:
                 print("qid:", data['qid'])
-                path = os.path.join(source_dir, f"qid{data['qid']}_{style_number}.jpg")
+                path = os.path.join(source_dir, f"qid{data['qid']}.jpg")
                 image = Image.open(path)
                 new_types = data['new_detail_type']
                 for i in range(len(new_types)):
@@ -46,7 +45,7 @@ def summarize_caption(raw_data, source_dir, style):
         else:
             if data['has_modification']:
                 print("qid:", data['qid'])
-                path = os.path.join(source_dir, f"qid{data['qid']}_{style_number}.jpg")
+                path = os.path.join(source_dir, f"qid{data['qid']}.jpg")
                 image = Image.open(path)
                 mod_types = data['modification_type']
                 for i in range(len(mod_types)):

@@ -5,7 +5,7 @@ from PIL import Image
 import re
 import glob
 import argparse
-from utils import save_file, remove_extra_spaces, remove_prompt, get_style_number
+from utils import save_file, remove_extra_spaces, remove_prompt
 
 
 processor = LlavaNextProcessor.from_pretrained(
@@ -16,9 +16,9 @@ model = LlavaNextForConditionalGeneration.from_pretrained(
 model.to("cuda:0")
 
 
-def _extract_qid_from_filename(filename, number):
+def _extract_qid_from_filename(filename):
     filename_only = os.path.basename(filename)
-    match = re.search(rf'qid(\d+)_{number}', filename_only)
+    match = re.search(rf'qid(\d+)', filename_only)
     if match:
         return int(match.group(1))
     else:
@@ -26,11 +26,11 @@ def _extract_qid_from_filename(filename, number):
             f"Could not extract QID from filename: {filename_only}")
 
 
-def gen_caption(gen_image_path, number):
+def gen_caption(gen_image_path):
     jpg_files = glob.glob(f"{gen_image_path}/*.jpg")
     caps = []
     for jpg in jpg_files:
-        qid = _extract_qid_from_filename(jpg, number)
+        qid = _extract_qid_from_filename(jpg)
         image = Image.open(jpg)
         prompt = f"""
         [INST] <image>\nI have an image. Describe it in a sentence and
@@ -56,14 +56,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Image Captioning")
     parser.add_argument('--image_dir', type=str, required=False,
                         help="Path to the reference image folder.")
-    parser.add_argument('--style', type=str, required=True,
-                        help="Indicate the reference image style")
     parser.add_argument('--des_path', type=str, required=True,
                         help="Destination file")
 
     args = parser.parse_args()
-
-    style_number = get_style_number(args.style)
-    captions = gen_caption(args.image_dir, style_number)
+    captions = gen_caption(args.image_dir)
     save_file(args.des_path, captions)
     print("Completed.")
