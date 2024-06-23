@@ -111,12 +111,28 @@ python3 encode.py --text_file exps_use/captioning/adjusted_caption_style_cinemat
 python3 encode.py --image_dir data/images/val_style_cinematic --des_dir features/clip_image_features_cinematic --src_type image
 ```
 
-## Benchmarking Scripts
-We will update soon.
+## Benchmarking
+The inferences are evaluated on the methods below. Please follow the instructions in their repo. You will need to adapt our annotation file and newly encoded features. The following includes the checkpoints used as well.
+
+| Methods                                               | Source Type |  Checkpoints                                                                                                                    |
+|-------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [Moment-DETR](https://github.com/jayleicn/moment_detr)| V           | Please check Moment-DETR/run_on_video/moment_detr_ckpt                                                              |
+| [QD-DETR](https://github.com/wjun0830/QD-DETR)        | V           | QD-DETR (Video only) Checkpoint                                                                                                 |
+| [QD-DETR](https://github.com/wjun0830/QD-DETR)        | V+A         | QD-DETR (Video+Audio) Checkpoint                                                                                                |
+| [EaTR](https://github.com/jinhyunj/EaTR)              | V           | Please check EaTR/eatr_ckpt                                                                                                     |
+| [CG-DETR](https://github.com/wjun0830/CGDETR)         | V           | Please check QVHighlights (under Model Zoo) in their README                                                                     |
+| [TR-DETR](https://github.com/mingyao1120/TR-DETR)     | V           | Please check TR-DETR/checkpoint                                                                                                 |
+| [UMT](https://github.com/TencentARC/UMT)              | V+A         | Please check QVHighlights UMT-B (under Model Zoo) in their README                                                               |
+| [UniVTG](https://github.com/showlab/UniVTG)           | V           | Please check QVHL (Joint Moment Retrieval and Highlight Detection) [here](https://github.com/showlab/UniVTG/blob/main/model.md) |
+| [UVCOM](https://github.com/EasonXiao-888/UVCOM)       | V           | Please check QVHighlights Val (under Main Results) in their README                                                              |
+| [SeViLA](https://github.com/Yui010206/SeViLA)         | V           | Please follow their instructions (under Download Pretrained Models) in their README                                             |
 
 ## Acknowledgement
-This repo is built based on the following repos:
-[Moment-DETR](https://github.com/jayleicn/moment_detr)
+This repo is built based on [Moment-DETR](https://github.com/jayleicn/moment_detr). Benchmarking were made on [Moment-DETR](https://github.com/jayleicn/moment_detr),
+[QD-DETR](https://github.com/wjun0830/QD-DETR), [EaTR](https://github.com/jinhyunj/EaTR),
+[CG-DETR](https://github.com/wjun0830/CGDETR), [TR-DETR](https://github.com/mingyao1120/TR-DETR),
+[UMT](https://github.com/TencentARC/UMT), [UniVTG](https://github.com/showlab/UniVTG),
+[UVCOM](https://github.com/EasonXiao-888/UVCOM), [SeViLA](https://github.com/Yui010206/SeViLA). We thank all the authors for their great open-source contributions!
 
 ## Citation
 Please cite our paper if you find this repo useful in your research:
