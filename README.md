@@ -1,5 +1,5 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2406.10079-red.svg)]([https://arxiv.org/abs/2406.10079)
-[![https://huggingface.co/spaces/Chunte/HFBA](https://huggingface.co/datasets/gengyuanmax/ICQ-Highlight)
+
 
 # Localizing Events in Videos with Multimodal Queries
 This repository contains the code for the paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
