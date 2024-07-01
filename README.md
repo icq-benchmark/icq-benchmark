@@ -133,7 +133,12 @@ This repo is built based on [Moment-DETR](https://github.com/jayleicn/moment_det
 
 ## Citation
 Please cite our paper if you find this repo useful in your research:
-```python
-TBD
+```bibtex
+@article{zhang2024localizing,
+  title={Localizing Events in Videos with Multimodal Queries},
+  author={Zhang, Gengyuan and Fok, Mang Ling Ada and Xia, Yan and Tang, Yansong and Cremers, Daniel and Torr, Philip and Tresp, Volker and Gu, Jindong},
+  journal={arXiv preprint arXiv:2406.10079},
+  year={2024}
+}
 ```
 
