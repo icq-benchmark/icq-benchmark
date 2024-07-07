@@ -1,7 +1,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2406.10079-red.svg)]([https://arxiv.org/abs/2406.10079)
 
 
-# Localizing Events in Videos with Multimodal Queries
+# ICQ: Localizing Events in Videos with Multimodal Queries
 This repository contains the code for the paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
 
 We introduce a new benchmark, ICQ, for localizing events in videos with multimodal queries, along with a new evaluation dataset ICQ-Highlight. Our new benchmark aims to evaluate how well models can localize an event given a multimodal semantic query that consists of a reference image, which depicts the event, and a refinement text to adjust the images’ semantics. Concretely, we include 4 styles of reference images and 5 types of refinement texts, allowing us to explore model performance across different domains. We propose 3 adaptation methods that tailor existing models to our new setting and evaluate 10 SOTA models, ranging from specialized to large-scale foundation models.
