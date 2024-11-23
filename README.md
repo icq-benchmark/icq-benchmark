@@ -3,6 +3,7 @@
 
 # ICQ: Localizing Events in Videos with Multimodal Queries
 This repository contains the code for the paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
+
 **Please stay tuned for our new version.**
 
 ## Summary
