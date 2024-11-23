@@ -3,8 +3,20 @@
 
 # ICQ: Localizing Events in Videos with Multimodal Queries
 This repository contains the code for the paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
+**Please stay tuned for our new version.**
 
-We introduce a new benchmark, ICQ, for localizing events in videos with multimodal queries, along with a new evaluation dataset ICQ-Highlight. Our new benchmark aims to evaluate how well models can localize an event given a multimodal semantic query that consists of a reference image, which depicts the event, and a refinement text to adjust the images’ semantics. Concretely, we include 4 styles of reference images and 5 types of refinement texts, allowing us to explore model performance across different domains. We propose 3 adaptation methods that tailor existing models to our new setting and evaluate 10 SOTA models, ranging from specialized to large-scale foundation models.
+## Summary
+- We introduce a new task, *video event localization with MQs*;  
+- We introduce a new benchmark, ICQ, for localizing events in videos with multimodal queries, along with a new evaluation dataset ICQ-Highlight.
+- We propose 3 MQA methods and Surrogate Fine-tuning on Pseudo-MQs strategy (SUIT) to adapt NLQ-based backbone models;
+
+`Codes and checkpoints for our proposed SUIT strategy will be released soon.`
+
+
+## Updates
+1. [2024-08-01] The codes are released.
+2. [2024-11-22] We update our arxiv paper with an improved baseline with SUIT
+
 
 ## Installation
 ```shell
@@ -75,7 +87,7 @@ For pann_features, please find in [UMT](https://github.com/TencentARC/UMT).
 ### Captioning adaptation method
 1. Use MLLM to perform image captioning
 
-Follow the instruction in [LLaVA](https://github.com/haotian-liu/LLaVA) for the setup of LLaVA. 
+Follow the instructions in [LLaVA](https://github.com/haotian-liu/LLaVA) for the setup of LLaVA. 
 ```python
 python3 img2caption.py --image_dir dataset/images/val_style_cinematic/ --des_path exps_use/image_captioning/caption_style_cinematic
 ```
