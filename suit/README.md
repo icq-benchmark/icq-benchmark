@@ -31,6 +31,8 @@ query
 
 ## FINE-TUNING: VLM PEFT
 
+Adopted from https://github.com/haotian-liu/LLaVA.
+
 ### Installation
 1. Navigate to LLaVA folder
 ```bash
