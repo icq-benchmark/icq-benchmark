@@ -1,0 +1,49 @@
+#!/usr/bin/bash
+#SBATCH --gres=gpu:1
+
+deepspeed llava/train/train_mem_suit.py \
+    --lora_enable True --lora_r 32 --lora_alpha 64 --mm_projector_lr 2e-5 \
+    --deepspeed ./scripts/zero3.json \
+    --model_name_or_path liuhaotian/llava-v1.6-mistral-7b \
+    --version mistral_instruct \
+    --dataset_seed 42 \
+    --split_ratio 0.95 \
+    --subset_size 1000 \
+    --coco_train_data_path "data/json/icq_dataset/training_data/coco_captions.json" \
+    --coco_train_img_dir_path "data/image/COCO/train2017" \
+    --coco_val_img_dir_path "data/image/COCO/val2017" \
+    --flickr30k_data_path "data/json/icq_dataset/training_data/flickr30k_captions.json" \
+    --flickr30k_image_dir_path "data/image/flickr30k/flickr30k-images" \
+    --vision_tower openai/clip-vit-large-patch14-336 \
+    --mm_projector_type mlp2x_gelu \
+    --mm_vision_select_layer -2 \
+    --mm_use_im_start_end False \
+    --mm_use_im_patch_token False \
+    --image_aspect_ratio pad \
+    --group_by_modality_length False \
+    --bf16 "True" \
+    --output_dir "output/checkpoints" \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 16 \
+    --per_device_eval_batch_size 4 \
+    --gradient_accumulation_steps 1 \
+    --evaluation_strategy "steps" \
+    --eval_steps 200 \
+    --save_strategy "steps" \
+    --save_steps 1000 \
+    --save_total_limit 1 \
+    --learning_rate 2e-4  \
+    --weight_decay 0. \
+    --warmup_ratio 0.03 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --tf32 "False" \
+    --model_max_length 2048 \
+    --gradient_checkpointing True \
+    --dataloader_num_workers 4 \
+    --lazy_preprocess True \
+    --report_to wandb \
+    --early_stopping_patience 700 \
+    --early_stopping_threshold 3.0 \
+    --instruct_type "icq_suit" \
+    --lora_target_modules ""
