@@ -2,7 +2,7 @@
 
 
 # ICQ: Localizing Events in Videos with Multimodal Queries
-This repository contains the code for the paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
+This repository contains the code for [CVPR2025](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Localizing_Events_in_Videos_with_Multimodal_Queries_CVPR_2025_paper.pdf) paper [Localizing Events in Videos with Multimodal Queries](https://arxiv.org/abs/2406.10079). 
 
 **Please stay tuned for our new version.**
 
@@ -15,8 +15,9 @@ This repository contains the code for the paper [Localizing Events in Videos wit
 
 
 ## Updates
-1. [2024-08-01] The codes are released.
-2. [2024-11-22] We update our arxiv paper with an improved baseline with SUIT
+- [2025-02-28] Our paper has been accepted to CVPR2025!
+- [2024-11-22] We update our arxiv paper with an improved baseline with SUIT
+- [2024-08-01] The codes are released.
 
 
 ## Installation
